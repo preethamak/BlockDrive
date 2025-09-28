@@ -1,4 +1,4 @@
-# Dgdrive3.0 Monorepo (Hardhat + React + Pinata)
+# BlockDrive (Hardhat + React + Pinata)
 
 This repository contains a decentralized file storage DApp:
 - Smart contracts (Hardhat)
@@ -9,14 +9,14 @@ The DApp lets users upload files to IPFS (through Pinata) and store the resultin
 
 ## Repository layout
 
-- `Dgdrive3.0/` — project root
+- `BlockDrive/` — project root
   - `contracts/Upload.sol` — Solidity contract for storing IPFS URLs and managing access lists
   - `scripts/deploy.js` — Hardhat deployment script
   - `hardhat.config.js` — Hardhat configuration (artifacts output to `client/src/artifacts`)
   - `client/` — React app (consumes the ABI and addresses)
     - `src/components/FileUpload.js` — handles Pinata upload and contract write
 
-A separate README exists at `Dgdrive3.0/README.md` with an overview; this root README is the canonical, actionable guide.
+A separate README exists at `BlockDrive/README.md` with an overview; this root README is the canonical, actionable guide.
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ Optional but recommended:
 
 For security, store secrets in environment files instead of hardcoding in source code. The current `client/src/components/FileUpload.js` includes inline Pinata credentials. Replace those with environment variables.
 
-1) Create `Dgdrive3.0/client/.env` with:
+1) Create `BlockDrive/client/.env` with:
 
 ```
 REACT_APP_PINATA_API_KEY=your_pinata_api_key
@@ -42,7 +42,7 @@ REACT_APP_PINATA_GATEWAY=https://gateway.pinata.cloud/ipfs/
 
 2) Update `FileUpload.js` to read from `process.env.REACT_APP_*` (instructions below).
 
-For Hardhat networks (deploying to testnets), create `Dgdrive3.0/.env` (and add `require('dotenv').config()` in `hardhat.config.js`) with:
+For Hardhat networks (deploying to testnets), create `BlockDrive/.env` (and add `require('dotenv').config()` in `hardhat.config.js`) with:
 
 ```
 ALCHEMY_API_KEY=...
@@ -57,7 +57,7 @@ Then extend `networks` in `hardhat.config.js` accordingly (example below).
 From repo root:
 
 - Install Hardhat deps and compile contracts
-  - `cd Dgdrive3.0`
+  - `cd BlockDrive`
   - `npm install`
   - `npx hardhat compile`
 
@@ -72,7 +72,7 @@ React dev server runs on http://localhost:3000
 
 You can run a local Hardhat node and deploy contracts for end-to-end local testing.
 
-- Start node: `cd Dgdrive3.0 && npx hardhat node`
+- Start node: `cd BlockDrive && npx hardhat node`
 - In a new shell, deploy: `npx hardhat run scripts/deploy.js --network localhost`
 - Copy the printed contract address and update the frontend configuration (see below) so the app points to the correct address.
 
