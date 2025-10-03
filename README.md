@@ -4,7 +4,7 @@ This repository contains a decentralized file storage DApp:
 - Smart contracts (Hardhat)
 - Frontend client (React/CRA)
 - IPFS via Pinata API
-
+  
 The DApp lets users upload files to IPFS (through Pinata) and store the resulting IPFS URL on-chain with access control.
 
 ## Repository layout
